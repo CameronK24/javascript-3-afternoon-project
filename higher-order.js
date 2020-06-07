@@ -68,6 +68,7 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 
 //Code Here
 let totalPopulation = populations.reduce(function(total, num){
+  console.log('total pop ' + total);
   return total + num;
 });
 
@@ -145,14 +146,18 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal = purchases.reduce(function(total, purchase){
-  // console.log(total);
-  if(purchase.owner === 'Bob') {
-    console.log(total);
-    console.log(purchase);
-    return purchase.price;
+let bobsTotal = purchases.reduce(function(total, current) {
+  // console.log('total: ' + total);
+  // console.log('current: ' + current.price);
+  if(current.owner === 'Bob') {
+    // console.log(total);
+    // console.log(purchase);
+    return total + current.price;
   }
-});
+  else {
+    return total;
+  }
+}, 0);
 
 console.log('bobs total ' + bobsTotal);
 
